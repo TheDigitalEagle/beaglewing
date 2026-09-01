@@ -1,0 +1,16 @@
+[package]
+name = "beaglewing-clip"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Windows clipboard helper: syncs text, images, and files over the beaglewing vendor HID channel"
+
+[dependencies]
+hidapi = "2"
+clipboard-win = "5"
+clipframe = { path = "../../protocol/clipframe" }
+image = { version = "0.25", default-features = false, features = ["png", "bmp"] }
+
+[profile.release]
+lto = true
+strip = true

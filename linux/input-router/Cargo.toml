@@ -1,0 +1,16 @@
+[package]
+name = "beaglewing-router"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Ubuntu-side input router: local/remote input switching over the bridge protocol"
+
+[dependencies]
+clipframe = { path = "../../protocol/clipframe" }
+evdev = "0.12"
+libc = "0.2"
+reis = "0.7"
+zbus = "5"
+
+[profile.release]
+lto = true

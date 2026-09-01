@@ -1,0 +1,13 @@
+[Unit]
+Description=Beaglewing data relay (TCP 4871 <-> vendor HID channel)
+After=beaglewing-gadget.service
+Requires=beaglewing-gadget.service
+
+[Service]
+Type=simple
+ExecStart=/opt/beaglewing/bridge/beaglewing-data
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

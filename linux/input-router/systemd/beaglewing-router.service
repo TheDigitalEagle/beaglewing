@@ -1,0 +1,20 @@
+# User service: systemctl --user {start,stop,status} beaglewing-router
+# Install: cargo build --release, copy the binary to ~/.local/bin, copy
+# this file to ~/.config/systemd/user/, then systemctl --user daemon-reload.
+# Adjust --remote-size to the target display's resolution.
+# Not enabled at login on purpose: each start needs one portal consent
+# click (GNOME portal v1), so autostart would just park a dialog on the
+# screen. Revisit when GNOME ships InputCapture persistence.
+
+[Unit]
+Description=Beaglewing input router (Ubuntu -> Pi HID bridge)
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/beaglewing-router run --bridge beaglewing:4870 --remote-size 2560x1440
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

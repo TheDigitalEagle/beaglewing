@@ -1,0 +1,12 @@
+[package]
+name = "beaglewing-bridge"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Pi-side daemon: receives input over TCP, emits USB HID reports"
+
+[dependencies]
+libc = "0.2"
+
+[profile.release]
+lto = true
