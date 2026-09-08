@@ -1,0 +1,14 @@
+[Unit]
+Description=Beaglewing bridge daemon (TCP -> USB HID reports)
+After=beaglewing-gadget.service network-online.target
+Requires=beaglewing-gadget.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/opt/beaglewing/bridge/beaglewing-bridge
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

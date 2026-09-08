@@ -1,0 +1,13 @@
+[Unit]
+Description=Beaglewing USB HID gadget (keyboard + absolute pointer)
+After=sys-kernel-config.mount
+Requires=sys-kernel-config.mount
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/beaglewing/gadget/setup-gadget.sh
+ExecStop=/opt/beaglewing/gadget/teardown-gadget.sh
+
+[Install]
+WantedBy=multi-user.target
