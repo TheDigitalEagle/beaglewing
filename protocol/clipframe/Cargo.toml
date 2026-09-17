@@ -1,0 +1,9 @@
+[package]
+name = "clipframe"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Frame protocol for the beaglewing clipboard channel over vendor HID reports"
+
+[dependencies]
+tar = "0.4"

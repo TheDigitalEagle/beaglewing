@@ -1,0 +1,8 @@
+[Unit]
+Description=Beaglewing Wi-Fi self-heal (bounce a degraded link)
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=-/etc/default/beaglewing-wifi-heal
+ExecStart=/opt/beaglewing/wifi-heal.sh

@@ -1,0 +1,16 @@
+# User service: status icon in the top bar (StatusNotifierItem). On GNOME
+# this needs the AppIndicator extension, which Ubuntu enables by default.
+# Install like the other units, then: systemctl --user enable --now beaglewing-tray
+
+[Unit]
+Description=Beaglewing status icon
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/beaglewing-router tray
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,4 @@
+#!/bin/sh
+# NetworkManager dispatcher: check link health on every Wi-Fi connect.
+[ "$1" = "wlan0" ] && [ "$2" = "up" ] && systemctl start --no-block beaglewing-wifi-heal.service
+exit 0
